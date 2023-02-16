@@ -1,10 +1,11 @@
 //tells the script that we require the express library
-//const express = require("express");
+const express = require("express");
 //Instanciate the library
-//const app = express();
+const app = express();
 //To import and instanciate on the same line
-const app = require("express")();
-
+//const app = require("express")();
+//tells the app to parse the body as JSON if it has the right headers
+app.use(express.json());
 //This entire thing is a route
 //get request for the "/" endpoint and a callback functions with a response
 //req = request - res = response
@@ -45,6 +46,16 @@ app.get("/bottle/:bottleSize", (req,res) => {
     console.log(req.params)
     res.send({ bottleSize: req.params.bottleSize });
 });
+
+//Postrequest
+app.post("/package", (req, res) => {
+    console.log(req.body)
+    
+    res.send({ message: req.body });
+});
+
+
+
 
 
 
