@@ -62,5 +62,11 @@ app.post("/package", (req, res) => {
 //port 8080 is the Http Dev port, so it significes that we are under development
 //Should be at the bottom for, atm, unknown reasons
 // in terminal ctrl + C to stop the server
-app.listen(8080);
+
+//app.listen(8080);
+
+//a callback that pings the gate the project is running on
+app.listen(8080, () => {
+    console.log("Server is running on port", 8080)
+})
 
