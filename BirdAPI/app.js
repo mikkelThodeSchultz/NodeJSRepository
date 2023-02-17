@@ -66,7 +66,7 @@ app.get("/birds/:id", (req, res) => {
         res.send({message: `Can't find bird with the id: ${birdId}`});
     }
 });
-
+// Make the ID be autoincremental
 app.post("/birds", (req, res) => {
     //gets the request body
     const birdToSave = req.body;
@@ -78,7 +78,7 @@ app.post("/birds", (req, res) => {
 app.patch("/birds/:id", (req, res ) => {
     const birdToUpdate = req.body;
     const birdId = req.params.id;
-    //sets bird to updates id to be equal to the bird that is changed
+    //todo sets bird to updates id to be equal to the bird that is changed
     birdToUpdate.id = birdId;
     let birdToFind = birds.find(element => element.id === Number(birdId));
     birds[birds.indexOf(birdToFind)] = birdToUpdate
@@ -88,6 +88,7 @@ app.patch("/birds/:id", (req, res ) => {
 app.delete("/birds/:id", (req, res) => {
     const birdId = req.params.id;
     const birdToDelete = birds.find(element => element.id === Number(birdId));
+    //todo maybe wrong loop
     birds.forEach((element, index) => {
         if (element === birdToDelete){
             birds.splice(index, 1)
@@ -96,6 +97,7 @@ app.delete("/birds/:id", (req, res) => {
     res.send({data: birds});
 });
 
+//todo add error handling
 app.listen(8080, () => {
     console.log("Server is running on port", 8080)
 })
