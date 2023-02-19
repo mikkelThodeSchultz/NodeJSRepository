@@ -46,6 +46,7 @@ const birds = [
     wingspan : 25.5}
 ]
 
+
 app.get("/", (req, res) => {
     res.send("Frontpage");
 });
@@ -66,38 +67,53 @@ app.get("/birds/:id", (req, res) => {
         res.send({message: `Can't find bird with the id: ${birdId}`});
     }
 });
-// Make the ID be autoincremental
 app.post("/birds", (req, res) => {
-    //gets the request body
     const birdToSave = req.body;
-    //adds the body to the list
-    birds.push({data: birdToSave});
-    res.send({message: `${birdToSave.name} was added to the list`});
+    // checks if the object is empty
+    if (Object.keys(birdToSave).length !== 0){
+        // finds the highest id and makes the new birds id autoincremental 
+        const highestID = Math.max(...birds.map(o => o.id)) +1;
+        birdToSave.id = highestID;
+        birds.push(birdToSave);
+        res.send({message: `${birdToSave.name} was added to the list`});
+    } else {
+        res.send ({message: 'not a valid bird'});
+    }
+    
 });
 
 app.patch("/birds/:id", (req, res ) => {
     const birdToUpdate = req.body;
     const birdId = req.params.id;
-    //todo sets bird to updates id to be equal to the bird that is changed
+    //sets birdToUpdates id to be equal to the bird that is changed
     birdToUpdate.id = birdId;
     let birdToFind = birds.find(element => element.id === Number(birdId));
-    birds[birds.indexOf(birdToFind)] = birdToUpdate
-    res.send({message: `${birdToUpdate.name} was updated`})
+    if(birdToFind){
+    birds[birds.indexOf(birdToFind)] = birdToUpdate;
+    res.send({data: birds});
+    } else {
+        res.send({message: `Can't find bird with id: ${birdId} `})
+    }
 });
 
 app.delete("/birds/:id", (req, res) => {
     const birdId = req.params.id;
     const birdToDelete = birds.find(element => element.id === Number(birdId));
-    //todo maybe wrong loop
-    birds.forEach((element, index) => {
-        if (element === birdToDelete){
-            birds.splice(index, 1)
-        }
-    });
+    const birdIndex = birds.indexOf(birdToDelete);
+    // checks if a bird could be found with the given id
+    if (birdIndex === -1){
+        res.send({message: `Can't find bird with id: ${birdId} `});
+    } else {
+    birds.splice(birdIndex,1);
     res.send({data: birds});
+    };
 });
 
-//todo add error handling
-app.listen(8080, () => {
-    console.log("Server is running on port", 8080)
-})
+const PORT = 8080;
+app.listen(PORT, (error) => {
+    if (error){
+        console.log(error);
+        return; 
+    }
+    console.log("Server is running on port", PORT)
+});
