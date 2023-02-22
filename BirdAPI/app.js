@@ -59,7 +59,7 @@ app.get("/birds/:id", (req, res) => {
     //get id from url
     const birdId = req.params.id;
     //set birdToFind to be bird with the id
-    const birdToFind = birds.find(element => element.id === Number(birdId));
+    const birdToFind = birds.find(bird => bird.id === Number(birdId));
     //checks if birdToFind is undefined
     if(birdToFind){
         res.send({data: birdToFind});
@@ -72,14 +72,13 @@ app.post("/birds", (req, res) => {
     // checks if the object is empty
     if (Object.keys(birdToSave).length !== 0){
         // finds the highest id and makes the new birds id autoincremental 
-        const highestID = Math.max(...birds.map(o => o.id)) +1;
+        const highestID = Math.max(...birds.map(birds => birds.id)) +1;
         birdToSave.id = highestID;
         birds.push(birdToSave);
         res.send({message: `${birdToSave.name} was added to the list`});
     } else {
         res.send ({message: 'not a valid bird'});
     }
-    
 });
 
 app.patch("/birds/:id", (req, res ) => {
@@ -87,7 +86,7 @@ app.patch("/birds/:id", (req, res ) => {
     const birdId = req.params.id;
     //sets birdToUpdates id to be equal to the bird that is changed
     birdToUpdate.id = birdId;
-    let birdToFind = birds.find(element => element.id === Number(birdId));
+    let birdToFind = birds.find(bird => bird.id === Number(birdId));
     if(birdToFind){
     birds[birds.indexOf(birdToFind)] = birdToUpdate;
     res.send({data: birds});
@@ -98,7 +97,7 @@ app.patch("/birds/:id", (req, res ) => {
 
 app.delete("/birds/:id", (req, res) => {
     const birdId = req.params.id;
-    const birdToDelete = birds.find(element => element.id === Number(birdId));
+    const birdToDelete = birds.find(bird => bird.id === Number(birdId));
     const birdIndex = birds.indexOf(birdToDelete);
     // checks if a bird could be found with the given id
     if (birdIndex === -1){
