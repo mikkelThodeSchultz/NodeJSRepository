@@ -47,16 +47,36 @@ app.get("/bottle/:bottleSize", (req,res) => {
     res.send({ bottleSize: req.params.bottleSize });
 });
 
+
+
+
+
+app.get("/time/time", (req, res) => {
+
+    res.send({ 
+        timeUTC: new Date(),
+        timeLocal: Date(),
+        unixTimestamp: Date.now()
+    });
+});
+
+const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+app.get("/time/day", (req, res) => {
+    res.send({ data: days[new Date().getDay()]});
+});
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+app.get("/time/month", (req, res) => {
+    res.send({ data: months[new Date().getMonth()]});
+});
+
+
 //Postrequest
 app.post("/package", (req, res) => {
     console.log(req.body)
     
     res.send({ message: req.body });
 });
-
-
-
-
 
 
 //port 8080 is the Http Dev port, so it significes that we are under development
