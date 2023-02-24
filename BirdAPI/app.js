@@ -80,7 +80,6 @@ app.post("/birds", (req, res) => {
         res.send ({message: 'not a valid bird'});
     }
 });
-
 app.patch("/birds/:id", (req, res ) => {
     const birdToUpdate = req.body;
     const birdId = req.params.id;
@@ -88,6 +87,9 @@ app.patch("/birds/:id", (req, res ) => {
     birdToUpdate.id = birdId;
     let birdToFind = birds.find(bird => bird.id === Number(birdId));
     if(birdToFind){
+        //Here i replace the entire bird, but this is a patch request so that is wrong.
+        //Could have written birds[foundIndex] = {... foundBird, ... req.body, id: birdId};
+    //Could have used birds.findIndex instead of finding the body
     birds[birds.indexOf(birdToFind)] = birdToUpdate;
     res.send({data: birds});
     } else {
@@ -98,10 +100,12 @@ app.patch("/birds/:id", (req, res ) => {
 app.delete("/birds/:id", (req, res) => {
     const birdId = req.params.id;
     const birdToDelete = birds.find(bird => bird.id === Number(birdId));
+    // Could have used birds.findIndex(bird => bird.id === Number(req.params.id));
+    // To save a line of code and save the program of looping an additional time
     const birdIndex = birds.indexOf(birdToDelete);
     // checks if a bird could be found with the given id
     if (birdIndex === -1){
-        res.send({message: `Can't find bird with id: ${birdId} `});
+        res.status(404).send({message: `Can't find bird with id: ${birdId} `});
     } else {
     birds.splice(birdIndex,1);
     res.send({data: birds});
