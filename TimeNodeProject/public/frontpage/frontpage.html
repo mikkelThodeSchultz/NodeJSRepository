@@ -64,7 +64,7 @@
         <button class = "button button4" onclick="forwardOrBackwards()">Forwards/Backwards</button>
     </div>
     <div id="startStopWatch">
-        0
+        0.0
     </div>
 
 
@@ -77,15 +77,15 @@
 
     function increaseEverySecond(){
         if (isForward){
-            timeAsNumber++
+            timeAsNumber +=  0.1;
         } else {
-            timeAsNumber--
+            timeAsNumber -=  0.1
         }
-        timeDiv.innerText = timeAsNumber;
+        timeDiv.innerText = timeAsNumber.toFixed(1);
     }
     function startTimer(){
         if (!isTimerGoing){
-        timeInterval = setInterval(increaseEverySecond, 1000);
+        timeInterval = setInterval(increaseEverySecond, 100);
         isTimerGoing = true;
         }
     }
@@ -96,7 +96,7 @@
     }
     function resetTimer(){
         timeAsNumber = 0;
-        timeDiv.innerText = 0;
+        timeDiv.innerText = '0.0';
     }
     function forwardOrBackwards(){
         if (isForward){
