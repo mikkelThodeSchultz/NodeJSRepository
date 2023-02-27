@@ -8,7 +8,6 @@
     <style> 
     body{
         background: gray;
-        
     }
     h1{
         text-align: center;
@@ -20,7 +19,6 @@
         height: 100px;
         margin: auto;
         text-align: center;
-        transform: scaleX(1);
     }
     #startStopWatch{
         width: 100px;
@@ -61,7 +59,7 @@
         <button class = "button button1" onclick="startTimer()">Start</button>
         <button class = "button button2" onclick="stopTimer()">Stop</button>
         <button class = "button button3" onclick="resetTimer()">Reset</button>
-        <button class = "button button4" onclick="forwardOrBackwards()">Forwards/Backwards</button>
+        <button id="forwardsBackwardsButton" class = "button button4" onclick="forwardOrBackwards()">Forwards/Backwards</button>
     </div>
     <div id="startStopWatch">
         0.0
@@ -100,12 +98,12 @@
     }
     function forwardOrBackwards(){
         if (isForward){
-            document.getElementById("buttonContainer").style.transform = "scaleX(-1)"
+            document.getElementById("forwardsBackwardsButton").style.transform = "scaleX(-1)"
             isForward = false;
         } else {
-            document.getElementById("buttonContainer").style.transform = "scaleX(1)"
+            document.getElementById("forwardsBackwardsButton").style.transform = "scaleX(1)"
             isForward = true;
-        }
+        } 
     }  
     </script>
 </body>
