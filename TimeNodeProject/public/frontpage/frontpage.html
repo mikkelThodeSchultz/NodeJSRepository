@@ -5,13 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time || Frontpage</title>
     <link rel="stylesheet" href="/frontpage/frontpage.css">
+    <style> 
+    body{
+        background: gray;
+    }
+    h1{
+        text-align: center;
+        font-size: 100px;
+        margin-bottom: 10px;
+    }
+    #buttonContainer{
+        width: 500px;
+        height: 100px;
+        margin: auto;
+        text-align: center;
+    }
+    #startStopWatch{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        font-size: 100px;
+        text-align: center;
+    }
+    .button {
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        font-size: 16px;
+        transition-duration: 0.4s;
+    }
+    .button1{
+        background-color: green;
+    }
+    .button2{
+        background-color: red;
+    }
+    .button3{
+        background-color: yellow;
+    }
+    .button4{
+        background-color:blueviolet;
+        margin-top: 10px;
+    }
+    .button:hover{
+        background-color: white;
+    }
+    </style>
 </head>
 <body>
-    <h1>Time Frontpage</h1>
+    <h1>Timer</h1>
 
-    <div id="verify-day-wrapper"></div>
-    <button onclick="isItFriday()">is it Friday?</button>
+    <div id="buttonContainer">
+        <button class = "button button1" onclick="startTimer()">Start</button>
+        <button class = "button button2" onclick="stopTimer()">Stop</button>
+        <button class = "button button3" onclick="resetTimer()">Reset</button>
+        <button class = "button button4" onclick="forwardOrBackwards()">Forwards/Backwards</button>
+    </div>
+    <div id="startStopWatch">
+        0
+    </div>
 
-    <script src="/frontpage/frontpage.js"></script>
+
+    <script>  
+    const timeDiv = document.getElementById('startStopWatch');
+    let myInterval;
+    let timeAsNumber = Number(timeDiv.innerText);
+    isForward = true;
+
+    function increaseEverySecond(){
+        if (isForward){
+            timeAsNumber++
+        } else {
+            timeAsNumber--
+        }
+        timeDiv.innerText = timeAsNumber;
+    }
+
+    function startTimer(){
+        myInterval = setInterval(increaseEverySecond, 1000);
+    }
+    function stopTimer(){
+        clearInterval(myInterval);
+    }
+    function resetTimer(){
+        timeAsNumber = 0;
+        timeDiv.innerText = 0;
+    }
+    function forwardOrBackwards(){
+        if (isForward){
+            isForward = false;
+        } else {
+            isForward = true;
+        }
+    }  
+    </script>
 </body>
 </html>

@@ -1,22 +1,32 @@
-let resultData;
-fetch("api/time")
-.then(response => response.json())
-.then(result => {
-    resultData = result;
-})
-.then(() => {
-    console.log(resultData)
-});
+const timeDiv = document.getElementById('startStopWatch');
+let myInterval;
+let timeAsNumber = Number(timeDiv.innerText);
+isForward = true;
 
-
-function isItFriday(){
-    const dayDiv = document.getElementById('verify-day-wrapper');
-    dayDiv.innerText = "";
-    const createP = document.createElement("p");
-    if (resultData.data==='Friday'){
-        createP.innerText = "YES, it is " + resultData.data;
+function increaseEverySecond(){
+    if (isForward){
+    timeAsNumber++
     } else {
-        createP.innerText = `No, it is not.. it is ${resultData.data} stupid`
+        timeAsNumber--
     }
-    dayDiv.appendChild(createP);
-};
+    timeDiv.innerText = timeAsNumber;
+}
+
+function startTimer(){
+    myInterval = setInterval(increaseEverySecond, 1000);
+}
+function stopTimer(){
+    clearInterval(myInterval);
+}
+function resetTimer(){
+    timeAsNumber = 0;
+    timeDiv.innerText = 0;
+}
+function forwardOrBackwards(){
+    if (isForward){
+        isForward = false;
+    } else {
+        isForward = true;
+    }
+}
+
