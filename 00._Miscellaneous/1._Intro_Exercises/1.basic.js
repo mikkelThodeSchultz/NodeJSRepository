@@ -22,6 +22,10 @@ console.log(yearAsNumber + number)
 // Add the year plus the number
 // The result should be 2023
 // You cannot touch line 1 or 2
-
+console.log("Hvor stor er ham der rapperen Funchs?")
+const kevinsPik = "Hvem ved?"
+const størrelse = 22 
+const hvorStorErDinPik = kevinsPik + " " + størrelse
+console.log(hvorStorErDinPik)
 
 // --------------------------------------
