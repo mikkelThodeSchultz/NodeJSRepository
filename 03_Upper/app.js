@@ -7,7 +7,6 @@ const app = express();
 import path from "path";
 
 
-// import jokes from "./util/jokes.js"
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -18,6 +17,9 @@ app.get("/IRLQuests", (req, res) => {
     res.sendFile(path.resolve("public/pages/irlQuests/irlQuest.html"))
 });
 
+app.get("/jokes", (req, res) => {
+    res.sendFile(path.resolve("public/pages/jokes/jokes.html"))
+});
 
 const PORT = 8080;
 app.listen(PORT, (error) => {

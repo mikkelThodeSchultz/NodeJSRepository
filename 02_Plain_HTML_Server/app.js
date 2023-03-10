@@ -39,7 +39,7 @@ app.get("/museumGuards", (req, res) => {
 //Sends data
 
 app.get("/api/tanks", (req, res) => {
-    res.send({ data: tanks})
+    res.send({ data: getTanks})
     
 });
 
@@ -49,6 +49,14 @@ app.get("/api/visitors", (req, res ) => {
 
 app.put("/api/visitors", (req, res) => {
     res.send({ data: ++visitorCount});
+});
+
+app.get("/api/guards", (req, res) => {
+    if (req.query.passport === "theskyisblue"){
+        //Return stops the request so it does not try to send 2 responses
+        return res.redirect("/api/tanks");
+    } 
+    res.send({ message: "You are not allowed to see the tanks. Give us the secret in the query string with the key being passport."})
 });
 
 
