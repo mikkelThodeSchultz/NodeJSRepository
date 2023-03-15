@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="pages/node/node.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
+    <title>Node</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a class="nav-image" href="/"><img  id="logo" src="/assets/images/node-js.227x256.png" alt=""></a>
+            <a class="nav-button" href="/javascript">Javascript</a>
+            <a class="nav-button" href="/node">Node</a>
+            <a class="nav-button" href="/mavenAndNpm">Maven and NPM</a>
+        </nav>
+    </header>
+    <main>
+        <div id="wrapper">
+            <h3 class="white-text">Node</h3>
+            <p class="white-text">
+                Node.js is a server-side runtime environment that allows developers to build highly scalable and efficient applications using 
+                JavaScript to write both client-side and server-side code.
+                Node.js comes with a vast array of modules, frameworks and libraries that make it easy to build web applications, APIs, and even 
+                desktop applications. It is widely used by developers and companies around the world, including large companies like Netflix, LinkedIn, and PayPal.</p>
+            <h3 class="white-text">Express</h3>
+            <p class="white-text" id="express-text"> 
+                Express is a framework for Node.js that simplifies the process of building web applications and APIs. It allows developers to 
+                define routes for handling incoming HTTP requests, including GET, POST, PUT, DELETE, and more.
+                Express also allows developers to serve static files like HTML, CSS, Javascript and images directly with the built-in function 'express.static' like this:
+            </p>
+
+            <pre class="code-wrapper" id="express-import-code">
+                <code>
+import express from 'express'
+const app = express();
+app.use(express.static(&quot;public&quot;));
+                </code>
+            </pre>
+
+            <p class="white-text" id="express-route-text"> 
+                In the example above, we initialize and instantiate express into a variable called app. Then we use the built-in function 'express.static' with our app variable, 
+                and tell it to serve everything in our folder called "public" to the client.
+                Now, we can also use our app to define our routes using the built-in method 'app.get()' which specifies the HTTP method and the URL path that should be handled. 
+            </p>
+            <pre class="code-wrapper" id="express-route-code">
+                <code>
+app.get('/node', (req, res) =&gt; {
+    res.sendFile(path.resolve(&quot;public/pages/node/node.html&quot;))
+});
+                </code>
+            </pre>
+            <h3 class="white-text">Nodemon</h3>
+            <p class="white-text">
+                Nodemon is a tool that automatically restarts your Node.js application whenever changes are detected in the code. It saves developers a lot of time, 
+                because normally you need to manually stop and restart the application to see the changes take effect. It can be installed by typing 'npm install -g nodemon'
+                in the terminal.
+            </p>
+
+            <p class="white-text">
+                the '-g' flag means that we install it globally, so we can use nodemon in multiple projects. After that we can run out project by typing
+                'nodemon app.js', and then the server will run and restart whenever changes are made to the code.
+            </p>
+    </div>
+</main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
+
+
+<!-- https://www.freewebtoolkit.com/html-encode -->

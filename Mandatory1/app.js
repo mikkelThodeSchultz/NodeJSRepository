@@ -7,24 +7,18 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve("public/pages/frontpage/frontpage.html"))
 });
 
-
-app.get('/about', (req, res) => {
-
+app.get('/node', (req, res) => {
+    res.sendFile(path.resolve("public/pages/node/node.html"))
 });
 
-// What is Node
-// Datatypes, numbers, strings, objects, booleans and functions
-    // Function vs Method
-    // Arrow functions
-    // Falsy types
-// Data structures (Const, let, why not var)
-// Terminal kommandoer 
-// Måske anatomien for en URL
-// Maven og NPM
-// Express
-// Nodemon
-// Vercel
-// Code snippets, not screenshots
+app.get('/mavenandnpm', (req, res) => {
+    res.sendFile(path.resolve("public/pages/mavenAndNpm/mavenAndNpm.html"))
+});
+
+app.get('/javascript', (req, res) => {
+    res.sendFile(path.resolve("public/pages/javascript/javascript.html"))
+});
+
 
 
 

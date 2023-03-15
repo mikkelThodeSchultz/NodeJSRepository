@@ -40,7 +40,6 @@ app.get("/museumGuards", (req, res) => {
 
 app.get("/api/tanks", (req, res) => {
     res.send({ data: getTanks})
-    
 });
 
 app.get("/api/visitors", (req, res ) => {
