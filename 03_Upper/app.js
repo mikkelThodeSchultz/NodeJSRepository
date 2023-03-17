@@ -12,12 +12,12 @@ import jokes from "./util/jokes.js"
 app.use(express.static("public"));
 
 
-// const acceptableJoke = await jokes.getJoke(); 
-// if (acceptableJoke.type === "single"){
-//     console.log(acceptableJoke.joke)
-// } else {
-//     console.log(acceptableJoke.setup + "\n" + acceptableJoke.delivery)
-// } 
+const acceptableJoke = await jokes.getJoke(); 
+if (acceptableJoke.type === "single"){
+    console.log(acceptableJoke.joke)
+} else {
+    console.log(acceptableJoke.setup + "\n" + acceptableJoke.delivery)
+} 
 
 
 app.get("/", (req, res) => {
