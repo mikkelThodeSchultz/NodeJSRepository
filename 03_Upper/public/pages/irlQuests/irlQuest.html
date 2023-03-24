@@ -1,31 +1,30 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <title>irlQuests</title>
-    
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/"><img id="logo" src="/assets/images/upper_logo (1).jpeg" alt=""></a>
-            <a href="/jokes">Jokes</a>
-        </nav>
-    </header>
 
-    <main>
-        <h1>IRL Quests</h1>
 
-        <h2>Your next quest is to... </h2>
 
-        <h2 id="quest"></h2>
-    </main>
-    <footer>
-        <p id="copyright-year"></p>
-    </footer>
-    <script src = "/pages/irlQuests/irlQuests.js"></script>
-    <script src="/assets/js/footer.js"></script>
-</body>
-</html>
+<label>Choose a quests:</label>
+<select id="activity-dropdown">
+    <option value="education">Education</option>
+    <option value="recreational">Recreational</option>
+    <option value="social">Social</option>
+    <option value="diy">Diy</option>
+    <option value="charity">Charity</option>
+    <option value="cooking">Cooking</option>
+    <option value="relaxation">Relaxation</option>
+    <option value="music">Music</option>
+    <option value="busywork">Busywork</option>
+</select> 
+<!--
+<button onclick="getNewQuest()"> Get new Quest </button>
+-->
+<button id="get-new-quests-btn"> Get new Quest </button>
+
+
+    <h1>IRL Quests</h1>
+    <h2>Your next quest is to... </h2>
+    <h2 id="quest"></h2>
+
+
+
+
+
+<script src = "/pages/irlQuests/irlQuests.js"></script>

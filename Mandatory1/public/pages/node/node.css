@@ -1,7 +1,6 @@
 #wrapper{
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
 }
 #express-text{
     grid-column: 1/4;
@@ -20,4 +19,36 @@
     grid-column: 3/5;
     grid-row: 5;
     margin-top: -0.5em;
+}
+#template-engine-code{
+    grid-column: 1/4;
+    grid-row: 11;
+    margin-top: -0.5em;
+}
+#template-engine-text{
+    grid-column: 3/6;
+    grid-row: 11;
+    margin-left: 20em;
+}
+#html-navbar-code{
+    grid-column: 1/3;
+    grid-row: 13;
+    margin-top: -0.5em;
+}
+#html-navbar-text{
+    grid-column: 1/3;
+    grid-row: 12;
+}
+
+#app-node-text{
+    grid-column: 3/5;
+    grid-row: 12;
+    margin-left: 3em;
+}
+
+#app-node-code{
+    grid-column: 3/5;
+    grid-row: 13;
+    margin-top: -0.5em;
+    margin-left: 3em;
 }

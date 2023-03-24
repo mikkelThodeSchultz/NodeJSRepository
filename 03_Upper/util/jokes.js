@@ -11,15 +11,9 @@ async function getJoke() {
     if (score < 0){
         return await getJoke();
     } else {
-        if (result.type === "single"){
-            return result.joke;
-        } else {
-            return result.setup + "\n" + result.delivery;
-        }
+        return result
     }
 }
 
 //export a function reference
-export default {
-    getJoke
-};
+export default getJoke;

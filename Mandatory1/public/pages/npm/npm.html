@@ -1,0 +1,51 @@
+<div id="wrapper">
+    <h3 class="white-text">NPM</h3>
+    <p class="white-text">
+        NPM (short for Node Package Manager) is both a package manager for the JavaScript programming language, and a command-line tool for Node.js. 
+        As a package manager, it can manage and share open-source packages that can be integrated into a JavaScript project. As a command-line tool, 
+        it allows developers to install, update and remove these packages. NPM as a package manager is in need of a file called 'package.json', this file containts 
+        the name, version, description, author, and other metadata of the project. When you begin your project, first you must create the 'package.json' file in the 
+        root directory of the project. This can be done manually, or by typing in the terminal: </p>
+
+        <pre class="code-wrapper" id="npm-terminal-init">
+            <code>
+npm init 
+            </code>
+        </pre>
+
+        <p class="white-text" id="npm-terminal-init-text">
+        This command will prompt you to answer a series of questions about your project, such as the project name, version, author, 
+        description, entry point, and license.</p>
+
+        <p class="white-text">
+            You can also type the following: 
+        </p>
+
+        <pre class="code-wrapper" id="npm-terminal-init-y">
+            <code>
+npm init -y
+            </code>
+        </pre>
+
+        <p class="white-text" id="npm-terminal-init-text">
+            This command will skip the previous steps and create a standardized 'package.json' file.
+        </p>
+
+        <p class="white-text">
+        When a package is installed or updated, NPM will also add the package 
+        to the projects 'package.json' file as a dependency. And when a package is removed, it will of course be removed from the file again. <br>
+        To install, update or remove packages with NPM, you simply type 'npm install/update/remove (package-name)', for example we can install Express by typing 
+        this command in the terminal: </p>
+
+        <pre class="code-wrapper" id="npm-terminal-install">
+            <code>
+npm install express 
+            </code>
+        </pre>
+
+        <p class="white-text">
+        When you use NPM to install, update or remove packages, NPM also automatically generate a 'package-lock.json' file. This file is a record of the exact versions 
+        of packages and their dependencies that were installed in your project, and it is used by npm to ensure consistent installation across different environments. </p>
+
+    </p>
+</div>

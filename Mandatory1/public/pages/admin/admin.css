@@ -1,0 +1,20 @@
+#wrapper{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-left: 10em;
+}
+
+button{
+    background-color: #120c34;
+    color: white;
+    padding: 5px 32px;
+    transition-duration: 0.4s;
+    border-radius: 1em; 
+    margin-bottom: 1em;
+    min-width: 10em;
+}
+
+button:hover {
+    background-color: rgb(134, 239, 159);
+}
+

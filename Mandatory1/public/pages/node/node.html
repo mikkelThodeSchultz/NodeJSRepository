@@ -1,23 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="pages/node/node.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
-    <title>Node</title>
-</head>
-<body>
-    <header>
-        <nav id="navbar">
-            <a class="nav-image" href="/"><img  id="logo" src="/assets/images/node-js.227x256.png" alt=""></a>
-            <a class="nav-button" href="/javascript">Javascript</a>
-            <a class="nav-button" href="/node">Node</a>
-            <a class="nav-button" href="/mavenAndNpm">Maven and NPM</a>
-        </nav>
-    </header>
-    <main>
         <div id="wrapper">
             <h3 class="white-text">Node</h3>
             <p class="white-text">
@@ -52,6 +32,7 @@ app.get('/node', (req, res) =&gt; {
 });
                 </code>
             </pre>
+
             <h3 class="white-text">Nodemon</h3>
             <p class="white-text">
                 Nodemon is a tool that automatically restarts your Node.js application whenever changes are detected in the code. It saves developers a lot of time, 
@@ -63,17 +44,81 @@ app.get('/node', (req, res) =&gt; {
                 the '-g' flag means that we install it globally, so we can use nodemon in multiple projects. After that we can run out project by typing
                 'nodemon app.js', and then the server will run and restart whenever changes are made to the code.
             </p>
+
+            <h3 class="white-text">Server-side rendering</h3>
+            <p class="white-text">
+                Server-side rendering is the process of rendering web content on the server before sending it to the client browser. 
+                We can for example render our html pages when we start up the server, render some dynamic variables and then send the finished html page to the client. 
+                <br>
+                This page about Node has been rendered server-side by adding the html content of a generic navbar and footer, to the static html content of this this page.
+                First we create an engine to read and render our pages like this:
+                <pre class="code-wrapper" id="template-engine-code">
+                    <code>
+import fs from "fs";
+
+function readPage(pagePath) {
+    return fs.readFileSync(pagePath).toString();
+};
+
+function renderPage(page, config={}) {
+    const navbar = fs.readFileSync("./public/components/navbar/navbar.html").toString()
+        .replace("$TAB_TITLE", config.tabTitle || "Upper")
+        .replace("$CSS_LINK", config.cssLink || "");
+        
+    const footer = fs.readFileSync("./public/components/footer/footer.html").toString()
+        .replace("$FOOTER_YEAR", `© ${new Date().getFullYear() }`)
+        .replace("$JS_LINK_BOTTOM", config.jsLinkBottom || "");
+        
+        
+    return navbar + page + footer
+};
+                    </code>
+                </pre>
+            </p>
+            <p class="white-text" id="template-engine-text">
+                We import our filesystem. <br>
+                Then we create a function that takes a page path to a HTML page as a parameter, reads the file line by line (blocking the execution of other code until the 
+                file read operation is complete) and returns the file in a string format.<br>
+                Then we create another function that can read our navbar and footer html pages, but also replace some values in those pages with some generated data. In this case
+                we can add a specific title, css link and js link, while also generating what year it is and replace those values with some placeholders we have made in our html documents ("$TAB_TITLE", "$CSS_LINK" etc.). <br>
+                Finally we can return our navbar, page and footer as a complete string that can be sent to the client. All of this happens when the server starts
+
+            </p>
+            <p class="white-text" id="html-navbar-text">
+                Then in our navbar and footer HTML pages, we can add the same placeholders ('$CSS_LINK' and '$TAB_TITLE') like this: 
+            </p>
+            <pre class="code-wrapper" id="html-navbar-code">
+                <code>
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; 
+    content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/main.css&quot;&gt;
+    $CSS_LINK
+    &lt;title&gt;$TAB_TITLE&lt;/title&gt;
+&lt;/head&gt;
+                </code>
+            </pre>
+
+            <p class="white-text" id="app-node-text">
+                And finally we call those functions we made before. Read our page, render it with the navbar and the footer and changing our placeholders with
+                a new title and a specific script. Then we can send the rendered page to the client, instead of sending a file like in earlier example.
+            </p>
+            <pre class="code-wrapper" id="app-node-code">
+                <code>
+const node = templateEngine.readPage
+(&quot;./public/pages/node/node.html&quot;);
+const nodePage = templateEngine.renderPage(node, {
+    tabTitle: &quot;Mandatory | Node&quot;,
+    cssLink: `&lt;link rel=&quot;stylesheet&quot; href=&quot;pages/node/node.css&quot;&gt;`
+});
+app.get('/node', (req, res) =&gt; {
+    res.send(nodePage)
+});
+                </code>
+            </pre>
+
     </div>
-</main>
-<footer>
-    
-</footer>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-</html>
-
-
-<!-- https://www.freewebtoolkit.com/html-encode -->

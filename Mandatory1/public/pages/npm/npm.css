@@ -1,0 +1,21 @@
+#wrapper{
+    display: grid;
+    grid-template-columns: 16,6% 16,6% 16,6% 16,6% 16,6%;
+}
+#npm-terminal-init{
+    grid-column: 1;
+}
+#npm-terminal-init-text{
+    grid-column: 2/5;
+    margin-left: 1em;
+    margin-top: 3em;
+    margin-right: 0em;
+}
+
+#npm-terminal-init-y{
+    grid-column: 1;
+}
+
+#npm-terminal-install{
+    grid-column: 1;
+}

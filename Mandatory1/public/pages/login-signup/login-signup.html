@@ -3,9 +3,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+    <link rel="stylesheet" href="pages/login-signup/login-signup.css">
+    <title>Mandatory | Login/Signup</title>
+    </head>
+    <body>
+        <main>
+    <form method="post" action="/signup">
+        <div id="wrapper">
+            <div id="grid-wrapper-signup">
+                <h1 class="white-text">Sign Up</h1>
+                <p class="white-text">Please fill in this form to create an account.</p>
+                <input type="text" placeholder="Enter username" name="username" class="username" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <div class="clearfix">
+                    <button "type="submit">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form method="post" action="/login">
+        <div id="wrapper">
+            <div id="grid-wrapper-login">
+                <h1 class="white-text">Login</h1>
+                <p class="white-text">Please fill in this form to login.</p>
+                <input type="text" placeholder="Enter username" name="username" class="username" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <div class="clearfix">
+                    <button type="submit">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>

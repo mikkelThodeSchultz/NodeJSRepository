@@ -1,23 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="pages/javascript/javascript.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
-    <title>Javascript</title>
-</head>
-<body>
-    <header>
-        <nav id="navbar">
-            <a class="nav-image" href="/"><img  id="logo" src="/assets/images/node-js.227x256.png" alt=""></a>
-            <a class="nav-button" href="/javascript">Javascript</a>
-            <a class="nav-button" href="/node">Node</a>
-            <a class="nav-button" href="/mavenAndNpm">Maven and NPM</a>
-        </nav>
-    </header>
-    <main>
+
         <div id="wrapper">
             <h3 class="white-text">Javascript</h3>
             <p class="white-text">
@@ -92,16 +73,33 @@ const add = (x, y) => {
             </p>
 
             <h3 class="white-text">Destructuring</h3>
+            <p class="white-text">
+                JavaScript destructuring is a syntax that allows you to extract data from objects or arrays and assign it to variables using a concise syntax. 
+                Destructuring is useful when you want to extract only a subset of the data from an object.
+            </p>
+            <p class="white-text" id="not-destructuring-text">
+                For example, if we want to get some values from and object, without destructuring we could do it like this: 
+            </p>
 
+            <pre class="code-wrapper" id="not-destructuring-code">
+                <code>
+const joke = { setup: 'I invented a new word!', punchline: 'Plagiarism!'};
+
+console.log(joke.setup); // 'I invented a new word!'
+console.log(joke.punchline); // 'Plagiarism!'
+
+                </code>
+            </pre>
+            <p class="white-text"  id="destructuring-text">
+                But with destructuring, we could extract the same values from the object like this: 
+            </p>
+            <pre class="code-wrapper" id="destructuring-code">
+                <code>
+const joke = { setup: 'I invented a new word!', punchline: 'Plagiarism!'};
+const { setup, punchline } = joke;
+console.log(setup); // 'I invented a new word!'
+console.log(punchline); // 'Plagiarism!'
+                </code>
+            </pre>
 
         </div>
-    </main>
-
-    <footer>
-
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-</html>

@@ -9,15 +9,37 @@
 
 #method-code{
     grid-column: 3/5;
+    margin-left: 3em;
 }
 
 #arrow-function-text{
     grid-column: 1/3;
     margin-right: 0;
-    margin-left: 20em;
+    margin-left: 10em;
 }
 
 #arrow-function-code{
+    margin-top: -2em;
+    grid-column: 3/4;
+    margin-left: 3em;
+}
+
+#destructuring-text{
+    grid-column: 1/3;
+    margin-right: 0;
+}
+#destructuring-code{
     margin-top: -1em;
-    grid-column: 3/5
+    grid-column: 3/5;
+    margin-left: 3em;
+}
+#not-destructuring-text{
+    grid-column: 1/3;
+    margin-right: 0;
+}
+#not-destructuring-code{
+    margin-top: -1em;
+    grid-column: 3/5;
+    margin-left: 3em;
+
 }

@@ -1,0 +1,71 @@
+#wrapper{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    margin-left: 10em;
+}
+
+#grid-wrapper-signup{
+    background-color: #282c34;
+    grid-column: 2/4;
+    border-style: solid;
+    border-color: black;
+    margin-top: 5em;
+    
+}
+
+#grid-wrapper-login{
+    background-color: #282c34;
+    grid-column: 2/4;
+    border-style: solid;
+    border-color: black;
+}
+
+body{
+    background-color: #102c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1;
+}
+
+.white-text{
+    color: white;
+}
+p{
+    margin-left: 2em;
+}
+h1{
+    margin-left: 1em;
+}
+
+button{
+    background-color: #120c34;
+    color: white;
+    padding: 5px 32px;
+    transition-duration: 0.4s;
+    border-radius: 1em; 
+    margin-left: 2em;
+    margin-bottom: 1em;
+    min-width: 10em;
+}
+
+button:hover {
+    background-color: rgb(134, 239, 159);
+}
+
+.username{
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
