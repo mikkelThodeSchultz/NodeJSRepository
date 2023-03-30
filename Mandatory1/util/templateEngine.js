@@ -10,7 +10,6 @@ function renderPage(page, config={}) {
         .replace("$FOOTER_YEAR", `© ${new Date().getFullYear() }`)
         .replace("$JS_LINK_BOTTOM", config.jsLinkBottom || "");
         
-        
     return navbar + page + footer
 };
 

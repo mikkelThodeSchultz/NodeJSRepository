@@ -3,9 +3,6 @@ const app = express();
 app.use(express.static("public"));
 import templateEngine from './util/templateEngine.js';
 
-// todo: læs op på den her
-// dont push nodemodule
-// dont push idea
 app.use(express.urlencoded({ extended: true }));
 
 //I use foundUser and adminLinkData to see if admin is logged in, if yes, then i show the admin page in the navbar. 
@@ -49,6 +46,7 @@ const adminPage = templateEngine.renderPage(admin, {
 })
 
 app.get('/frontpage', (req, res) => {
+    //I have put the reading and rendering of the frontpage into the get method, so it can check who is logged in
     if (foundUser.password === "admin"){
         adminLinkData = `<a class="nav-button" href="/admin">Admin</a>`
     }
