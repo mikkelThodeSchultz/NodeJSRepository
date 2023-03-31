@@ -5,7 +5,7 @@ import templateEngine from './util/templateEngine.js';
 
 app.use(express.urlencoded({ extended: true }));
 
-//I use foundUser and adminLinkData to see if admin is logged in, if yes, then i show the admin page in the navbar. 
+//I use foundUser and adminLinkData to see if admin is logged in, if he is, then i show the admin page in the navbar. 
 let foundUser = {};
 let adminLinkData = "";
 let users = [{
@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
     res.send(loginSignupPage)
 });
 
-//-------------------API----------------
+//-------------------API-------------------
 
 app.post('/login', (req, res) => {
     const username = req.body.username;
