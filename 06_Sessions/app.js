@@ -4,6 +4,10 @@ import express from "express";
 
 const app = express();
 
+// kobler backend sammen med svelte frondend
+import path from "path";
+app.use(express.static(path.resolve("../05_svelte-family/dist")));
+
 import helmet from "helmet"
 app.use(helmet());
 
