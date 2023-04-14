@@ -50,7 +50,7 @@
     }
 
     .not-a-black-sheep {
-        background-color: aliceblue;
+        background-color: gray;
     }
 
     .medium-black-sheep {

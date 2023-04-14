@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
 //Setting 'public' as our static folder
@@ -44,9 +44,8 @@ app.get("/proxy", (req, res) => {
 // API ----------------------------------------------------------
 //Sends data
 
-app.get("/api/tanks", (req, res) => {
-    res.send({ data: getTanks})
-});
+import tankRouter from "./routers/tanksRouter.js"
+app.use(tankRouter); 
 
 app.get("/api/visitors", (req, res ) => {
     res.send({ data: visitorCount })

@@ -1,17 +1,16 @@
 {
-  "dependencies": {
-    "express": "^4.18.2"
-  },
-  "name": "02_plain_html_server",
+  "name": "07_middleware",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

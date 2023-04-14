@@ -1,6 +1,18 @@
 <script>
+    import { onMount } from "svelte";
     import Home from "./components/Home/Home.svelte"
     import Pibling from "./components/Pibling/Pibling.svelte"
+    import { BASE_URL } from "./store/urlDomain";
+
+    // onMount only runs when the server starts?
+    onMount(async () => {
+      const registerURL = `${BASE_URL}/gotham/batman?hobby=Cathing the bad guys.`
+      const response = await fetch(registerURL, {
+        credentials: "include"
+      });
+      const batmanRegisteredMessageResponse = await response.json();
+      console.log(batmanRegisteredMessageResponse);
+    });
 
     const piblings = ["John", "Mark"];
     const niblings = [
