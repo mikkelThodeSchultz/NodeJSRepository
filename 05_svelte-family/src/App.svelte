@@ -37,6 +37,13 @@
         blackSheep: "ultra-black-sheep",
         money: 0,
         cookies: []
+      },
+      {
+        id: 4,
+        name: "Søren",
+        blackSheep: "ultra-black-sheep",
+        money: 0,
+        cookies: []
       }
     ];
 </script>

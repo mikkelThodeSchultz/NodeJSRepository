@@ -2,6 +2,9 @@ import dotenv from "dotenv/config";
 import express from "express";
 const app = express();
 
+import path from "path";
+app.use(express.static(path.resolve("../Mandatory2Svelte/dist")));
+
 import cors from "cors";
 app.use(cors({
     credentials: true,
@@ -43,3 +46,4 @@ app.listen(PORT, (error) => {
     };
     console.log("Server is running on port: ", PORT)
 });
+
