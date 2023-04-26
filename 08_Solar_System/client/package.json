@@ -1,5 +1,5 @@
 {
-  "name": "package.json",
+  "name": "vite-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,5 +12,8 @@
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
     "svelte": "^3.55.1",
     "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "svelte-navigator": "^3.2.2"
   }
 }
