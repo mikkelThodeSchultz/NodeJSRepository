@@ -25,7 +25,7 @@
         if (response.ok) {
             toastr.success("You have succesfully created an account.");
             setTimeout(function() {
-                window.location.href = "/";
+                window.location.href = "/secret";
             }, 2000);
         } else {
             toastr.warning("the mail has already been taken.");

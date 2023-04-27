@@ -32,7 +32,7 @@
         if (result.data) { 
             toastr.success("You have succesfully logged in.");
             setTimeout(function() {
-                window.location.href = "/";
+                window.location.href = "/secret";
             }, 2000);
         } else {
             toastr.warning('Wrong email or password')
@@ -108,7 +108,7 @@
 
     <button type="submit">Login</button>
 </form>
-<h3>Forgot your password?</h3>
+<h3 id="forgot-password">Forgot your password?</h3>
 <p>Write your email below and we will send you a code</p>
 <form on:submit|preventDefault={handleForgotPassword}>
     <label for="email">Email</label>
@@ -123,8 +123,6 @@
     <input type="password" id="password" bind:value={forgotPasswordFormData.newPassword}  aria-label="Password"/>
     <button type="submit">Reset password </button>
 </form>
-
-
 
 
 

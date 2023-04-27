@@ -40,6 +40,10 @@ h1 {
   line-height: 1.1;
 }
 
+h3 {
+  margin-top: 5vh;
+}
+
 .card {
   padding: 2em;
 }
