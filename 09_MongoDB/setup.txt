@@ -1,0 +1,19 @@
+C -> programmer -> MongoDB -> Server -> 6.0 -> bin -> Kør "mongod.exe"
+Skriverbord -> mongosh-1.8 -> bin -> Kør "mongosh.exe"
+
+showdbs -> se alle databaser
+use <navn_på_database> -> laver en ny database
+db.createCollection("navn_på_collection") -> laver en ny collection (table)
+db er en genvej for den database man er i, så først vælg database med "use", så lav en collection i den valgte database med db.createCollection
+insertOne -> db.navn_på_collection.insertOne({key: "Value", key2: Value2"})
+insertMany
+find() -> db.navn_på_collection.find() -> viser alle objekter på din collection
+find({key: "Value"}) -> db.navn_på_collection.find({key: "Value"}) -> finder alle med den key. Kan også have flere parametrer find({key: "Value", key2: "Value2, etc..})
+find({key: {$exists: true}}) -> finder alle objekter der har en specifik key
+updateOne({searchcriteria: "value"}, {$set: { newKey: "newValue"}}) -> laver en ny key/value på objektet eller ændrer værdien hvis den har den
+updateOne({searchcriteria: "Value"}, $push: {array_name: "value"}) -> pusher en værdi til et array
+updateMany
+deleteOne({key: "Value}) kan bruge ID her med deleteOne({_id: ObjectId("lkajsdlækajsdlækjad")}) 
+deleteMany
+
+
